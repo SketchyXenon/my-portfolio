@@ -1,0 +1,60 @@
+# ================================================================
+# .gitignore — Portfolio (Vanilla HTML/CSS/JS)
+# ================================================================
+
+# ── OS Files ─────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editor & IDE ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ── Local Dev Servers ─────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Dependency folders (if you ever add a build tool) ────────────
+node_modules/
+.npm/
+.pnp
+.pnp.js
+
+# ── Build outputs (if you ever add Eleventy / Vite / etc.) ───────
+_site/
+dist/
+build/
+.cache/
+.parcel-cache/
+.eleventy-cache/
+
+# ── Logs ─────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Sensitive / private files — NEVER commit these ───────────────
+*.pem
+*.key
+*.cert
+secrets.js
+config.local.js
+
+# ── Misc ─────────────────────────────────────────────────────────
+*.zip
+*.tar.gz
+.temp/
+.tmp/

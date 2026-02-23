@@ -1,0 +1,75 @@
+/* ================================================================
+   hero.css — Hero Section
+   ================================================================ */
+
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; padding: 6rem var(--px) 4rem; overflow: hidden;
+}
+
+/* Grid background */
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px; opacity: .3; pointer-events: none;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, transparent 0%, var(--bg) 80%);
+}
+
+/* Glow orbs */
+.hero-orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; animation: orb 8s ease-in-out infinite alternate; }
+.hero-orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,255,200,.07), transparent 70%); top: -120px; left: -80px; }
+.hero-orb-2 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(157,125,255,.06), transparent 70%); bottom: -60px; right: -60px; animation-delay: -4s; }
+@keyframes orb { from { transform: translate(0,0) scale(1); } to { transform: translate(25px,18px) scale(1.05); } }
+
+.hero-inner { position: relative; z-index: 1; width: 100%; max-width: var(--max-w); margin: 0 auto; }
+
+/* Badge */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-family: var(--font-m); font-size: .72rem; color: var(--accent);
+  background: var(--accent-dim); border: 1px solid rgba(0,255,200,.18);
+  border-radius: 4px; padding: .35rem .85rem; margin-bottom: 2rem;
+}
+[data-theme="light"] .hero-badge { border-color: rgba(0,122,96,.2); }
+
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2.5s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+/* Name */
+.hero-name { font-size: clamp(3.5rem,9vw,8rem); font-weight: 800; line-height: .92; letter-spacing: -.04em; margin-bottom: 2rem; }
+.hero-name .outline { color: transparent; -webkit-text-stroke: 1.5px var(--border); }
+[data-theme="light"] .hero-name .outline { -webkit-text-stroke-color: var(--muted); }
+.hero-name .hi { color: var(--accent); }
+
+/* Terminal / typewriter */
+.hero-terminal { display: flex; align-items: center; gap: .5rem; font-family: var(--font-m); font-size: clamp(.78rem,1.5vw,.92rem); color: var(--muted); margin-bottom: 2.5rem; }
+.hero-terminal .prompt { color: var(--accent); }
+.hero-terminal .typed  { color: var(--text); }
+.cursor-blink { display: inline-block; width: 9px; height: 1.1em; background: var(--accent); vertical-align: middle; margin-left: 2px; animation: blink 1s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* CTAs & Stats */
+.hero-ctas  { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4.5rem; }
+.hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+.stat-val { font-size: 2.2rem; font-weight: 800; color: var(--heading); line-height: 1; }
+.stat-lbl { font-family: var(--font-m); font-size: .65rem; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; margin-top: .25rem; }
+
+/* Scroll hint */
+.scroll-hint { position: absolute; bottom: 2.5rem; right: var(--px); display: flex; flex-direction: column; align-items: center; gap: .5rem; font-family: var(--font-m); font-size: .6rem; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+.scroll-line { width: 1px; height: 50px; background: linear-gradient(var(--accent), transparent); animation: scroll-anim 2s ease-in-out infinite; }
+@keyframes scroll-anim {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@media (max-width: 768px) {
+  .hero { align-items: flex-start; padding-top: 7rem; }
+  .scroll-hint { display: none; }
+}
