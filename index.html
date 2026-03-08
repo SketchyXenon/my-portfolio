@@ -80,11 +80,11 @@
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self';
-                 script-src 'self' 'unsafe-inline';
-                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-                 font-src https://fonts.gstatic.com;
-                 img-src 'self' data:;
-                 connect-src 'none';"
+               script-src 'self' 'sha256-cGL0ExLOCcxqfmwUFK5XApMNvNlLwfjpcCiAeuOrFlQ=';
+               style-src 'self' https://fonts.googleapis.com;
+               font-src https://fonts.gstatic.com;
+               img-src 'self' data:;
+               connect-src 'none';"
     />
 
     <script>
@@ -232,7 +232,7 @@
               </div>
             </div>
             <div
-              class="reveal d2"
+              class="div class= reveal d2 photo-col"
               style="display: flex; justify-content: flex-start"
             >
               <div class="photo-wrap">
@@ -353,9 +353,7 @@
       <section id="contact" aria-label="Contact">
         <div class="wrap">
           <div class="contact-inner">
-            <div class="section-label" style="justify-content: center">
-              Contact
-            </div>
+            <div class="section-label section-label--center">Contact</div>
             <h2 class="section-title reveal">Let's work together.</h2>
             <p class="contact-intro reveal d1">
               Whether you have a project in mind, a role to fill,<br />
@@ -365,7 +363,7 @@
               >loading...</a
             >
             <noscript>
-              <p style="font-family: monospace; color: var(--muted)">
+              <p class="noscript-email"></p>
                 Enable JavaScript to view email address.
               </p>
             </noscript>

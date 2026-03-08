@@ -164,3 +164,14 @@ img {
 .reveal.d3 {
   transition-delay: 0.3s;
 }
+.photo-col {
+  display: flex;
+  justify-content: flex-start;
+}
+.section-label--center {
+  justify-content: center;
+}
+.noscript-email {
+  font-family: var(--font-m);
+  color: var(--muted);
+}
