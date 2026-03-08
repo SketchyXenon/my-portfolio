@@ -1,38 +1,35 @@
-/* ================================================================
-   variables.css — Design Tokens
-   ================================================================ */
 :root {
-  --bg:        #080810;
-  --surface:   #13131e;
-  --surface2:  #1a1a28;
-  --border:    #252538;
-  --text:      #d8d8ee;
-  --muted:     #6868a0;
-  --heading:   #f0f0ff;
-  --accent:    #00ffc8;
-  --accent2:   #9d7dff;
-  --accent-dim:  rgba(0,255,200,0.08);
-  --glow:      0 0 32px rgba(0,255,200,0.14);
-  --card-bg:   #0f0f1a;
+  --bg: #080810;
+  --surface: #13131e;
+  --surface2: #1a1a28;
+  --border: #252538;
+  --text: #d8d8ee;
+  --muted: #6868a0;
+  --heading: #f0f0ff;
+  --accent: #00ffc8;
+  --accent2: #9d7dff;
+  --accent-dim: rgba(0, 255, 200, 0.08);
+  --glow: 0 0 32px rgba(0, 255, 200, 0.14);
+  --card-bg: #0f0f1a;
 
-  --font-d: 'Syne', sans-serif;
-  --font-m: 'Space Mono', monospace;
-  --ease:   cubic-bezier(0.4,0,0.2,1);
-  --max-w:  1100px;
-  --px:     clamp(1.25rem, 5vw, 2.5rem);
+  --font-d: "Syne", sans-serif;
+  --font-m: "Space Mono", monospace;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --max-w: 1100px;
+  --px: clamp(1.25rem, 5vw, 2.5rem);
 }
 
 [data-theme="light"] {
-  --bg:        #f2f2fa;
-  --surface:   #ffffff;
-  --surface2:  #f0f0fa;
-  --border:    #d0d0e8;
-  --text:      #18182e;
-  --muted:     #6868a8;
-  --heading:   #08081e;
-  --accent:    #007a60;
-  --accent2:   #6a4fd4;
-  --accent-dim:  rgba(0,122,96,0.08);
-  --glow:      0 0 32px rgba(0,122,96,0.12);
-  --card-bg:   #fafaff;
+  --bg: #f2f2fa;
+  --surface: #ffffff;
+  --surface2: #f0f0fa;
+  --border: #d0d0e8;
+  --text: #18182e;
+  --muted: #6868a8;
+  --heading: #08081e;
+  --accent: #007a60;
+  --accent2: #6a4fd4;
+  --accent-dim: rgba(0, 122, 96, 0.08);
+  --glow: 0 0 32px rgba(0, 122, 96, 0.12);
+  --card-bg: #fafaff;
 }

@@ -1,4 +1,3 @@
-
 /**
  * Validate a URL is safe to use in an href.
  * Allows: https://, http://, and root-relative paths (/...).
@@ -8,13 +7,12 @@
  * @returns {string|null}  The original url if safe, null otherwise.
  */
 export function safeUrl(url) {
-  if (!url || typeof url !== 'string') return null;
+  if (!url || typeof url !== "string") return null;
   const trimmed = url.trim();
-  // Allow root-relative paths like /blog/my-post
-  if (trimmed.startsWith('/')) return trimmed;
+  if (trimmed.startsWith("/")) return trimmed;
   try {
     const parsed = new URL(trimmed);
-    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+    if (parsed.protocol === "https:" || parsed.protocol === "http:") {
       return trimmed;
     }
   } catch {
@@ -31,7 +29,7 @@ export function safeUrl(url) {
  * @returns {Text}
  */
 export function safeText(value) {
-  return document.createTextNode(String(value ?? ''));
+  return document.createTextNode(String(value ?? ""));
 }
 
 /**
@@ -41,7 +39,7 @@ export function safeText(value) {
  * @param {string}      value
  */
 export function setText(el, value) {
-  el.textContent = String(value ?? '');
+  el.textContent = String(value ?? "");
 }
 
 /**
@@ -54,20 +52,20 @@ export function setText(el, value) {
  * @param {string}   [title]
  * @returns {HTMLAnchorElement|null}  null if url is unsafe.
  */
-export function safeLink(url, className = '', title = '') {
+export function safeLink(url, className = "", title = "") {
   const href = safeUrl(url);
   if (!href) return null;
 
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = href;
   if (className) a.className = className;
-  if (title)     a.title     = title;
+  if (title) a.title = title;
 
   // External links open in new tab with security attrs
-  const isExternal = href.startsWith('http://') || href.startsWith('https://');
+  const isExternal = href.startsWith("http://") || href.startsWith("https://");
   if (isExternal) {
-    a.target = '_blank';
-    a.rel    = 'noopener noreferrer';
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
   }
 
   return a;
@@ -81,10 +79,10 @@ export function safeLink(url, className = '', title = '') {
  * @param {string} [className]
  * @returns {HTMLElement}
  */
-export function el(tag, text = '', className = '') {
+export function el(tag, text = "", className = "") {
   const node = document.createElement(tag);
-  if (text)      node.textContent = text;
-  if (className) node.className   = className;
+  if (text) node.textContent = text;
+  if (className) node.className = className;
   return node;
 }
 
@@ -102,33 +100,40 @@ export function el(tag, text = '', className = '') {
  * @param {boolean}  [opts.stroke] — use stroke instead of fill
  * @returns {SVGSVGElement}
  */
-export function safeSvg({ viewBox, width, height, paths = [], extras = [], stroke = false }) {
-  const NS  = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('width',   String(width));
-  svg.setAttribute('height',  String(height));
-  svg.setAttribute('viewBox', viewBox);
-  svg.setAttribute('aria-hidden', 'true');
+export function safeSvg({
+  viewBox,
+  width,
+  height,
+  paths = [],
+  extras = [],
+  stroke = false,
+}) {
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("width", String(width));
+  svg.setAttribute("height", String(height));
+  svg.setAttribute("viewBox", viewBox);
+  svg.setAttribute("aria-hidden", "true");
 
   if (stroke) {
-    svg.setAttribute('fill',         'none');
-    svg.setAttribute('stroke',       'currentColor');
-    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "2");
   } else {
-    svg.setAttribute('fill', 'currentColor');
+    svg.setAttribute("fill", "currentColor");
   }
 
   paths.forEach((d) => {
-    const path = document.createElementNS(NS, 'path');
-    path.setAttribute('d', d);
+    const path = document.createElementNS(NS, "path");
+    path.setAttribute("d", d);
     svg.appendChild(path);
   });
 
-
+  // Extras like polyline, line, circle — parsed safely via DOMParser
   if (extras.length) {
-    const parser  = new DOMParser();
-    const wrapper = `<svg xmlns="http://www.w3.org/2000/svg">${extras.join('')}</svg>`;
-    const doc     = parser.parseFromString(wrapper, 'image/svg+xml');
+    const parser = new DOMParser();
+    const wrapper = `<svg xmlns="http://www.w3.org/2000/svg">${extras.join("")}</svg>`;
+    const doc = parser.parseFromString(wrapper, "image/svg+xml");
     doc.documentElement.childNodes.forEach((child) => {
       svg.appendChild(document.importNode(child, true));
     });

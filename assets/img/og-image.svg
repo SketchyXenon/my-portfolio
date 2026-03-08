@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#080810"/>
+      <stop offset="100%" stop-color="#0d0d1c"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="ring-glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="text-glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- ── Background ── -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- ── Grid texture ── -->
+  <g opacity="0.04" stroke="#00ffc8" stroke-width="0.5">
+    <line x1="0"    y1="90"  x2="1200" y2="90"/>
+    <line x1="0"    y1="180" x2="1200" y2="180"/>
+    <line x1="0"    y1="270" x2="1200" y2="270"/>
+    <line x1="0"    y1="360" x2="1200" y2="360"/>
+    <line x1="0"    y1="450" x2="1200" y2="450"/>
+    <line x1="0"    y1="540" x2="1200" y2="540"/>
+    <line x1="120"  y1="0"   x2="120"  y2="630"/>
+    <line x1="240"  y1="0"   x2="240"  y2="630"/>
+    <line x1="360"  y1="0"   x2="360"  y2="630"/>
+    <line x1="480"  y1="0"   x2="480"  y2="630"/>
+    <line x1="600"  y1="0"   x2="600"  y2="630"/>
+    <line x1="720"  y1="0"   x2="720"  y2="630"/>
+    <line x1="840"  y1="0"   x2="840"  y2="630"/>
+    <line x1="960"  y1="0"   x2="960"  y2="630"/>
+    <line x1="1080" y1="0"   x2="1080" y2="630"/>
+  </g>
+
+  <!-- ── Accent glow orb (left, behind badge) ── -->
+  <circle cx="280" cy="315" r="260" fill="none"
+    stroke="#00ffc8" stroke-width="180" opacity="0.025"/>
+
+  <!-- ── Divider line ── -->
+  <line x1="560" y1="80" x2="560" y2="550" stroke="#252538" stroke-width="1"/>
+  <!-- accent dot on divider -->
+  <circle cx="560" cy="80"  r="3" fill="#00ffc8" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="560" cy="550" r="3" fill="#00ffc8" opacity="0.6" filter="url(#glow)"/>
+
+  <!-- ════════════════════════
+       LEFT — BADGE (scaled ~0.52x, centered at 280,315)
+  ════════════════════════ -->
+  <g transform="translate(280,315) scale(0.52) translate(-250,-250)">
+
+    <!-- Outer hex rings -->
+    <polygon points="250,22 458,136 458,364 250,478 42,364 42,136"
+      fill="none" stroke="#1a1a2e" stroke-width="1.5"/>
+    <polygon points="250,48 432,152 432,348 250,452 68,348 68,152"
+      fill="none" stroke="#00ffc8" stroke-width="1.5" opacity="0.45" filter="url(#ring-glow)"/>
+    <polygon points="250,78 408,170 408,330 250,422 92,330 92,170"
+      fill="none" stroke="#252538" stroke-width="1"/>
+
+    <!-- Tick marks -->
+    <g stroke="#00ffc8" stroke-width="2.5" opacity="0.9" filter="url(#glow)">
+      <line x1="250" y1="22"  x2="250" y2="48"/>
+      <line x1="250" y1="452" x2="250" y2="478"/>
+      <line x1="428" y1="130" x2="411" y2="140"/>
+      <line x1="428" y1="370" x2="411" y2="360"/>
+      <line x1="72"  y1="130" x2="89"  y2="140"/>
+      <line x1="72"  y1="370" x2="89"  y2="360"/>
+    </g>
+
+    <!-- Corner diamonds -->
+    <g fill="#00ffc8" opacity="0.95" filter="url(#glow)">
+      <polygon points="250,16  256,22  250,28  244,22"/>
+      <polygon points="250,472 256,478 250,484 244,478"/>
+      <polygon points="42,130  48,136  42,142  36,136"/>
+      <polygon points="458,130 464,136 458,142 452,136"/>
+      <polygon points="42,364  48,370  42,376  36,370"/>
+      <polygon points="458,364 464,370 458,376 452,370"/>
+    </g>
+
+    <!-- Inner fill -->
+    <polygon points="250,88 400,176 400,324 250,412 100,324 100,176" fill="#0a0a14"/>
+
+    <!-- Cross lines -->
+    <g stroke="#1e1e30" stroke-width="1" opacity="0.5">
+      <line x1="140" y1="140" x2="360" y2="360"/>
+      <line x1="360" y1="140" x2="140" y2="360"/>
+    </g>
+
+    <!-- Center circle -->
+    <circle cx="250" cy="250" r="108" fill="#080810" stroke="#252538" stroke-width="1"/>
+    <circle cx="250" cy="250" r="104" fill="none"   stroke="#00ffc8"  stroke-width="0.75" opacity="0.25"/>
+
+    <!-- JRA monogram -->
+    <g fill="#00ffc8" filter="url(#glow)">
+      <rect x="181" y="214" width="38" height="6" rx="1"/>
+      <rect x="207" y="214" width="6"  height="52" rx="1"/>
+      <rect x="181" y="260" width="26" height="6" rx="1"/>
+      <rect x="181" y="248" width="6"  height="18" rx="1"/>
+
+      <rect x="231" y="214" width="6"  height="58" rx="1"/>
+      <rect x="231" y="214" width="32" height="6" rx="1"/>
+      <rect x="231" y="237" width="28" height="6" rx="1"/>
+      <rect x="257" y="214" width="6"  height="29" rx="1"/>
+      <rect x="245" y="240" width="6"  height="14" rx="1" transform="rotate(35 248 247)"/>
+      <rect x="254" y="254" width="6"  height="18" rx="1" transform="rotate(20 257 263)"/>
+
+      <rect x="281" y="214" width="6"  height="58" rx="1" transform="rotate(16 284 243)"/>
+      <rect x="313" y="214" width="6"  height="58" rx="1" transform="rotate(-16 316 243)"/>
+      <rect x="284" y="240" width="32" height="6" rx="1"/>
+    </g>
+
+    <!-- Accent dots -->
+    <circle cx="250" cy="148" r="3.5" fill="#00ffc8" opacity="0.6" filter="url(#glow)"/>
+    <circle cx="250" cy="352" r="3.5" fill="#00ffc8" opacity="0.6" filter="url(#glow)"/>
+
+    <!-- Scan lines -->
+    <line x1="210" y1="330" x2="290" y2="330" stroke="#00ffc8" stroke-width="1" opacity="0.2"/>
+    <line x1="222" y1="337" x2="278" y2="337" stroke="#00ffc8" stroke-width="0.75" opacity="0.12"/>
+
+    <!-- Label -->
+    <text x="250" y="392" text-anchor="middle"
+      font-family="monospace" font-size="11" letter-spacing="4" fill="#6868a0">DEV.PORTFOLIO</text>
+
+  </g>
+  <!-- end badge group -->
+
+  <!-- ════════════════════════
+       RIGHT — TEXT CONTENT
+  ════════════════════════ -->
+
+  <!-- Status badge -->
+  <rect x="616" y="118" width="196" height="28" rx="4"
+    fill="rgba(0,255,200,0.06)" stroke="rgba(0,255,200,0.2)" stroke-width="1"/>
+  <circle cx="632" cy="132" r="4" fill="#00ffc8">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <text x="644" y="137" font-family="monospace" font-size="11"
+    letter-spacing="2" fill="#00ffc8">AVAILABLE FOR HIRE</text>
+
+  <!-- Name -->
+  <text x="616" y="220" font-family="Georgia, serif" font-size="62"
+    font-weight="700" letter-spacing="-1" fill="#f0f0ff">John Ray</text>
+  <text x="616" y="292" font-family="Georgia, serif" font-size="62"
+    font-weight="700" letter-spacing="-1" fill="none"
+    stroke="#252538" stroke-width="1.5">Abenasa</text>
+
+  <!-- Accent underline -->
+  <line x1="616" y1="308" x2="820" y2="308" stroke="#00ffc8" stroke-width="2" opacity="0.8"/>
+  <line x1="616" y1="308" x2="636" y2="308" stroke="#00ffc8" stroke-width="4"/>
+
+  <!-- Role -->
+  <text x="616" y="350" font-family="monospace" font-size="15"
+    letter-spacing="3" fill="#6868a0">FULL-STACK DEVELOPER</text>
+
+  <!-- Stack pills -->
+  <g font-family="monospace" font-size="11" letter-spacing="1">
+    <!-- React -->
+    <rect x="616" y="378" width="60" height="22" rx="3"
+      fill="none" stroke="#252538" stroke-width="1"/>
+    <text x="646" y="393" text-anchor="middle" fill="#d8d8ee">React</text>
+
+    <!-- Node.js -->
+    <rect x="684" y="378" width="66" height="22" rx="3"
+      fill="none" stroke="#252538" stroke-width="1"/>
+    <text x="717" y="393" text-anchor="middle" fill="#d8d8ee">Node.js</text>
+
+    <!-- Python -->
+    <rect x="758" y="378" width="62" height="22" rx="3"
+      fill="none" stroke="#252538" stroke-width="1"/>
+    <text x="789" y="393" text-anchor="middle" fill="#d8d8ee">Python</text>
+
+    <!-- PostgreSQL -->
+    <rect x="828" y="378" width="86" height="22" rx="3"
+      fill="none" stroke="#252538" stroke-width="1"/>
+    <text x="871" y="393" text-anchor="middle" fill="#d8d8ee">PostgreSQL</text>
+
+    <!-- Docker -->
+    <rect x="922" y="378" width="62" height="22" rx="3"
+      fill="none" stroke="#252538" stroke-width="1"/>
+    <text x="953" y="393" text-anchor="middle" fill="#d8d8ee">Docker</text>
+  </g>
+
+  <!-- URL -->
+  <text x="616" y="510" font-family="monospace" font-size="13"
+    letter-spacing="2" fill="#00ffc8" opacity="0.7"
+    filter="url(#glow)">portfolio-virid-omega-15.vercel.app</text>
+
+  <!-- Bottom accent line -->
+  <line x1="0"    y1="610" x2="1200" y2="610" stroke="#252538"   stroke-width="1"/>
+  <line x1="0"    y1="610" x2="120"  y2="610" stroke="#00ffc8"   stroke-width="2" opacity="0.6"/>
+  <line x1="1080" y1="610" x2="1200" y2="610" stroke="#00ffc8"   stroke-width="2" opacity="0.6"/>
+
+  <!-- Corner brackets -->
+  <g stroke="#00ffc8" stroke-width="1.5" opacity="0.5" fill="none">
+    <polyline points="20,20 20,50 50,50"/>
+    <polyline points="1180,20 1180,50 1150,50"/>
+    <polyline points="20,610 20,580 50,580"/>
+    <polyline points="1180,610 1180,580 1150,580"/>
+  </g>
+
+</svg>

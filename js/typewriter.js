@@ -3,13 +3,15 @@ export function initTypewriter(elementId, phrases, options = {}) {
   if (!el) return;
 
   const {
-    typeSpeed   = 70,
+    typeSpeed = 70,
     deleteSpeed = 35,
-    pauseAfter  = 2200,
+    pauseAfter = 2200,
     pauseBefore = 600,
   } = options;
 
-  let pIdx = 0, cIdx = 0, deleting = false;
+  let pIdx = 0,
+    cIdx = 0,
+    deleting = false;
 
   function tick() {
     const phrase = phrases[pIdx];
