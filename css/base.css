@@ -175,3 +175,7 @@ img {
   font-family: var(--font-m);
   color: var(--muted);
 }
+.photo-col {
+  display: flex;
+  justify-content: flex-start;
+}
